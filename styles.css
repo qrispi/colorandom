@@ -17,26 +17,54 @@ main {
 
 main h1 {
     text-align: center;
+    font-size: 10vmin;
 }
 
 aside {
     width: 20vw;
     border-left: 2px solid black;
     text-align: center;
-
 }
 
-.color-boxes {
+h3 {
+    font-size: 3vmin;
+}
+
+.color-widget-parent {
     display: flex;
+    justify-content: center;
+    gap: 1vw;
 }
 
 .color-box {
     background-color: indigo;
-    height: 5vmin;
-    width: 5vmin;
+    border: 2px solid black;
+    height: 15vmin;
+    width: 15vmin;
+}
+
+.color-box-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75vmin;
+}
+
+.color-widget > p {
+    text-align: center;
+    font-size: 2vmin;
+}
+
+img {
+    height: 2vmin;
+    width: 2vmin;
 }
 
 .color-buttons {
     display: flex;
     justify-content: space-evenly;
+}
+
+button {
+    font-size: 2vmin;
 }
