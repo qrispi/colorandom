@@ -3,10 +3,6 @@ class Color {
         this.hex = getRandomHex();
         this.locked = false;
     }
-
-    toggleLock() {
-        this.locked = !this.locked;
-    }
 }
 
 class Palette {
@@ -21,5 +17,9 @@ class Palette {
                 this.colors[i] = new Color();
             }
         }
+    }
+
+    toggleColorLock(colorIndex) {
+        this.colors[colorIndex].locked = !this.colors[colorIndex].locked;
     }
 }
