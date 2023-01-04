@@ -15,10 +15,6 @@ function getRandomHex() {
 }
 
 function reloadPalette() {
-    // loop through current palette colors
-    // inside loop clear current HTML
-        // make new color widget
-        // append inner html
     colorWidgetParent.innerHTML = ''
     for (var i = 0; i < 5; i++) {
         var imgString = 'Unlock.png'
