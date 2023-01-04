@@ -39,10 +39,6 @@ function displayCurrentPalette() {
 }
 
 function displaySavedPalettes() {
-    //set inner html to h3
-    //loop through saved colors array
-        //change each div background color to be each palette, create a single saved palette
-        // add single saved palette to inner html with palette id  
     savedSection.innerHTML = `<h3>Saved Palettes</h3>`;
     for (var i = 0; i < savedPalettes.length; i++) {
         savedSection.innerHTML += 
@@ -63,13 +59,7 @@ function changePaletteColors() {
 }
 
 function savePalette() {
-    // create a new palette with colors from current palette
-    // add new palette to saved palettes array 
-    // call function to display saved palettes
-    // call change palette colors 
-    var newColors = [currentPalette.colors[0], 
-    currentPalette.colors[1], currentPalette.colors[2], currentPalette.colors[3], currentPalette.colors[4]]; 
-    var newSavedPalette = new Palette(newColors);
+    var newSavedPalette = new Palette([...currentPalette.colors]);
     savedPalettes.push(newSavedPalette);
     displaySavedPalettes();
     changePaletteColors();
