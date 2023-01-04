@@ -9,7 +9,8 @@ var savedPalettes = [];
 window.addEventListener('load', displayCurrentPalette);
 newPaletteButton.addEventListener('click', changePaletteColors);
 savePaletteButton.addEventListener('click', savePalette);
-colorWidgetParent.addEventListener('click', toggleColorLock)
+colorWidgetParent.addEventListener('click', toggleColorLock);
+savedSection.addEventListener('click', deleteSavedPalette);
 
 function getRandomHex() {
     var characters = 'ABCDEF0123456789'.split('');
@@ -72,4 +73,24 @@ function toggleColorLock(event) {
         currentPalette.toggleColorLock(selectedColorIndex);
         displayCurrentPalette();
     }
+}
+
+function deleteSavedPalette(event) {
+    // check if the delete icon was clicked
+    // if icon is clicked, then run function
+    if(event.target.tagName === 'IMG') {
+        var clickedPaletteId = event.target.parentElement.id
+        for (var i = 0; i < savedPalettes.length; i++) {
+            if (savedPalettes[i].id == clickedPaletteId) {
+                savedPalettes.splice(i, 1)
+            }
+        }
+        displaySavedPalettes()
+    }
+
+    // check for event.target.parentElement.id
+    // use id to splice corresponding palette from saved palettes array
+    // call display saved palettes again to remove that palette
+
+
 }
