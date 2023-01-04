@@ -3,8 +3,8 @@ var newPaletteButton = document.querySelector('#new-palette')
 
 var currentPalette = new Palette();
 
-window.addEventListener('load', reloadPalette);
-newPaletteButton.addEventListener('click', generateNewPalette)
+window.addEventListener('load', displayCurrentPalette);
+newPaletteButton.addEventListener('click', changePaletteColors)
 
 function getRandomHex() {
     var characters = 'ABCDEF0123456789'.split('');
@@ -16,7 +16,7 @@ function getRandomHex() {
     return hexCode
 }
 
-function reloadPalette() {
+function displayCurrentPalette() {
     colorWidgetParent.innerHTML = ''
     for (var i = 0; i < 5; i++) {
         var imgString = 'Unlock.png'
@@ -28,13 +28,13 @@ function reloadPalette() {
                 <div style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
                 <div class="color-box-footer">
                     <p>${currentPalette.colors[i].hex}</p>
-                    <img id="${i}" src="./assets/${imgString}">
+                    <img data-index-number="${i}" src="./assets/${imgString}">
                 </div>
             </article>`           
     }
 }
 
-function generateNewPalette() {
+function changePaletteColors() {
     currentPalette.replaceColors()
-    reloadPalette()
+    displayCurrentPalette()
 }
