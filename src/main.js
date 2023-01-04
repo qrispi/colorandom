@@ -1,8 +1,10 @@
 var colorWidgetParent = document.querySelector('.color-widget-parent');
+var newPaletteButton = document.querySelector('#new-palette')
+
 var currentPalette = new Palette();
 
-
-window.addEventListener('load', reloadPalette());
+window.addEventListener('load', reloadPalette);
+newPaletteButton.addEventListener('click', generateNewPalette)
 
 function getRandomHex() {
     var characters = 'ABCDEF0123456789'.split('');
@@ -30,4 +32,9 @@ function reloadPalette() {
                 </div>
             </article>`           
     }
+}
+
+function generateNewPalette() {
+    currentPalette.replaceColors()
+    reloadPalette()
 }
