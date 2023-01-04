@@ -9,6 +9,7 @@ var savedPalettes = [];
 window.addEventListener('load', displayCurrentPalette);
 newPaletteButton.addEventListener('click', changePaletteColors);
 savePaletteButton.addEventListener('click', savePalette);
+colorWidgetParent.addEventListener('click', toggleColorLock)
 
 function getRandomHex() {
     var characters = 'ABCDEF0123456789'.split('');
@@ -29,10 +30,10 @@ function displayCurrentPalette() {
         }
         colorWidgetParent.innerHTML +=
             `<article class="color-widget">
-                <div style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
+                <div data-index-number="${i}" style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
                 <div class="color-box-footer">
                     <p>${currentPalette.colors[i].hex}</p>
-                    <img data-index-number="${i}" src="./assets/${imgString}">
+                    <img  src="./assets/${imgString}">
                 </div>
             </article>`           
     }
@@ -63,4 +64,12 @@ function savePalette() {
     savedPalettes.push(newSavedPalette);
     displaySavedPalettes();
     changePaletteColors();
+}
+
+function toggleColorLock(event) {
+    if(event.target.className === 'color-box') {
+        var selectedColorIndex = event.target.dataset.indexNumber;
+        currentPalette.toggleColorLock(selectedColorIndex);
+        displayCurrentPalette();
+    }
 }

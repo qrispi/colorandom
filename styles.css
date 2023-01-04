@@ -25,6 +25,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 2vmin;
+    overflow: auto;
 }
 
 h3 {
@@ -34,7 +35,7 @@ h3 {
 .color-widget-parent {
     display: flex;
     justify-content: center;
-    gap: 1vw;
+    gap: 1vmin;
 }
 
 .color-box {
