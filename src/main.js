@@ -1,27 +1,30 @@
 var colorWidgetParent = document.querySelector('.color-widget-parent');
-var newPaletteButton = document.querySelector('#new-palette')
+var newPaletteButton = document.querySelector('#new-palette');
+var savePaletteButton = document.querySelector('#save-palette');
 
 var currentPalette = new Palette();
+var savedPalettes = [];
 
 window.addEventListener('load', displayCurrentPalette);
-newPaletteButton.addEventListener('click', changePaletteColors)
+newPaletteButton.addEventListener('click', changePaletteColors);
+savePaletteButton.addEventListener('click', );
 
 function getRandomHex() {
     var characters = 'ABCDEF0123456789'.split('');
-    var hexCode = '#'
+    var hexCode = '#';
     for (var i = 0; i < 6; i++) {
-        var randomNum = Math.floor(Math.random() * characters.length)
-        hexCode += characters[randomNum]
+        var randomNum = Math.floor(Math.random() * characters.length);
+        hexCode += characters[randomNum];
     }
-    return hexCode
+    return hexCode;
 }
 
 function displayCurrentPalette() {
-    colorWidgetParent.innerHTML = ''
+    colorWidgetParent.innerHTML = '';
     for (var i = 0; i < 5; i++) {
-        var imgString = 'Unlock.png'
+        var imgString = 'Unlock.png';
         if (currentPalette.colors[i].locked) {
-            imgString = 'Lock.png'
+            imgString = 'Lock.png';
         }
         colorWidgetParent.innerHTML +=
             `<article class="color-widget">
@@ -35,6 +38,6 @@ function displayCurrentPalette() {
 }
 
 function changePaletteColors() {
-    currentPalette.replaceColors()
-    displayCurrentPalette()
+    currentPalette.replaceColors();
+    displayCurrentPalette();
 }
