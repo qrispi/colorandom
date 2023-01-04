@@ -22,6 +22,9 @@ aside {
     width: 20vw;
     border-left: 2px solid black;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2vmin;
 }
 
 h3 {
@@ -65,4 +68,18 @@ img {
 
 button {
     font-size: 2vmin;
+}
+
+.mini-color-box {
+    border: 2px solid black;
+    height: 3vmin;
+    width: 3vmin;
+}
+
+.single-saved-palette {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75vmin;
 }

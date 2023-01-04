@@ -6,8 +6,8 @@ class Color {
 }
 
 class Palette {
-    constructor() {
-        this.colors = [new Color(),new Color(),new Color(),new Color(),new Color()];
+    constructor(paletteColors) {
+        this.colors = paletteColors || [new Color(),new Color(),new Color(),new Color(),new Color()];
         this.id = Date.now();
     }
     
