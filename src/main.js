@@ -9,17 +9,8 @@ var savedPalettes = [];
 window.addEventListener('load', displayCurrentPalette);
 newPaletteButton.addEventListener('click', changePaletteColors);
 savePaletteButton.addEventListener('click', savePalette);
-colorWidgetParent.addEventListener('click', toggleColorLock)
-
-function getRandomHex() {
-    var characters = 'ABCDEF0123456789'.split('');
-    var hexCode = '#';
-    for (var i = 0; i < 6; i++) {
-        var randomNum = Math.floor(Math.random() * characters.length);
-        hexCode += characters[randomNum];
-    }
-    return hexCode;
-}
+colorWidgetParent.addEventListener('click', toggleColorLock);
+savedSection.addEventListener('click', deleteSavedPalette);
 
 function displayCurrentPalette() {
     colorWidgetParent.innerHTML = '';
@@ -59,6 +50,14 @@ function changePaletteColors() {
     displayCurrentPalette();
 }
 
+function toggleColorLock(event) {
+    if(event.target.className === 'color-box') {
+        var selectedColorIndex = event.target.dataset.indexNumber;
+        currentPalette.toggleColorLock(selectedColorIndex);
+        displayCurrentPalette();
+    }
+}
+
 function savePalette() {
     var newSavedPalette = new Palette([...currentPalette.colors]);
     savedPalettes.push(newSavedPalette);
@@ -66,10 +65,24 @@ function savePalette() {
     changePaletteColors();
 }
 
-function toggleColorLock(event) {
-    if(event.target.className === 'color-box') {
-        var selectedColorIndex = event.target.dataset.indexNumber;
-        currentPalette.toggleColorLock(selectedColorIndex);
-        displayCurrentPalette();
+function deleteSavedPalette(event) {
+    if(event.target.tagName === 'IMG') {
+        var clickedPaletteId = event.target.parentElement.id;
+        for (var i = 0; i < savedPalettes.length; i++) {
+            if (savedPalettes[i].id == clickedPaletteId) {
+                savedPalettes.splice(i, 1);
+            }
+        }
+        displaySavedPalettes();
     }
+}
+
+function getRandomHex() {
+    var characters = 'ABCDEF0123456789'.split('');
+    var hexCode = '#';
+    for (var i = 0; i < 6; i++) {
+        var randomNum = Math.floor(Math.random() * characters.length);
+        hexCode += characters[randomNum];
+    }
+    return hexCode;
 }
