@@ -67,7 +67,9 @@ function savePalette() {
 }
 
 function toggleColorLock(event) {
-    var selectedColorIndex = event.target.dataset.indexNumber;
-    currentPalette.toggleColorLock(selectedColorIndex);
-    displayCurrentPalette();
+    if(event.target.className === 'color-box') {
+        var selectedColorIndex = event.target.dataset.indexNumber;
+        currentPalette.toggleColorLock(selectedColorIndex);
+        displayCurrentPalette();
+    }
 }
