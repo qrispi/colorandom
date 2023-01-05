@@ -6,14 +6,18 @@ var savedSection = document.querySelector('aside');
 var currentPalette = new Palette();
 var savedPalettes = [];
 
-window.addEventListener('load', displayCurrentPalette);
+window.addEventListener('load', loadPage);
 newPaletteButton.addEventListener('click', changePaletteColors);
 savePaletteButton.addEventListener('click', savePalette);
 colorWidgetParent.addEventListener('click', toggleColorLock);
 savedSection.addEventListener('click', deleteSavedPalette);
 
-function displayCurrentPalette() {
+function loadPage() {
     displayRandomTitleFonts();
+    displayCurrentPalette();
+}
+
+function displayCurrentPalette() {
     colorWidgetParent.innerHTML = '';
     for (var i = 0; i < 5; i++) {
         var imgString = 'Unlock.png';
@@ -60,6 +64,7 @@ function displayRandomTitleFonts() {
 
 function changePaletteColors() {
     currentPalette.replaceColors();
+    displayRandomTitleFonts();
     displayCurrentPalette();
 }
 
@@ -74,6 +79,7 @@ function toggleColorLock(event) {
 function savePalette() {
     var newSavedPalette = new Palette([...currentPalette.colors]);
     savedPalettes.push(newSavedPalette);
+    displayRandomTitleFonts();
     displaySavedPalettes();
     changePaletteColors();
 }
@@ -99,4 +105,3 @@ function getRandomHex() {
     }
     return hexCode;
 }
-
