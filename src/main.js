@@ -13,6 +13,7 @@ colorWidgetParent.addEventListener('click', toggleColorLock);
 savedSection.addEventListener('click', deleteSavedPalette);
 
 function displayCurrentPalette() {
+    displayRandomTitleFonts();
     colorWidgetParent.innerHTML = '';
     for (var i = 0; i < 5; i++) {
         var imgString = 'Unlock.png';
@@ -42,6 +43,18 @@ function displaySavedPalettes() {
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[4].hex}"></div>
             <img src="./assets/Delete.png">
         </article>`
+    }
+}
+
+function displayRandomTitleFonts() {   
+    var fonts = ["'Barrio', cursive;", "'Bungee Shade', cursive;", "'Cabin Sketch', cursive;", "'Monoton', cursive;", "'Moo Lah Lah', cursive;", "'Schoolbell', cursive;"];
+    var colors = ["#ef3550", "#f48fb1", "#7e57c2", "#2196f3", "#26c6da", "#43a047", "#00ff80", "#eeff41", "#f9a825", "#ff5722"];
+    var header = document.querySelector('h1');
+    var titleLetters = 'COLORANDOM'.split('');
+    header.innerHTML = '';
+    for (var i = 0; i < titleLetters.length; i++) {
+        var randomNum = Math.floor(Math.random() * fonts.length);
+        header.innerHTML += `<span style="font-family: ${fonts[randomNum]}; color: ${colors[i]};">${titleLetters[i]}</span>`
     }
 }
 
@@ -86,3 +99,4 @@ function getRandomHex() {
     }
     return hexCode;
 }
+
