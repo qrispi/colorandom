@@ -11,6 +11,7 @@ main {
     flex-direction: column;
     justify-content: space-around;
     align-items: stretch;
+    margin-left: 4vw;
 }
 
 main h1 {
@@ -26,6 +27,7 @@ aside {
     flex-direction: column;
     gap: 2vmin;
     overflow: auto;
+    margin-left: 4vw;
 }
 
 h3 {
@@ -36,13 +38,20 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 1vmin;
+    margin-right: 3vw;
+    margin-left: 3vw;
 }
 
 .color-box {
-    
     border: 2px solid black;
     height: 15vmin;
     width: 15vmin;
+    border-radius: 10px;
+}
+
+.color-box:hover {
+    scale: 1.05;
+    cursor: pointer;
 }
 
 .color-box-footer {
@@ -62,6 +71,11 @@ img {
     width: 2vmin;
 }
 
+aside img:hover {
+   scale: 1.2;
+   cursor: pointer;
+}
+
 .color-buttons {
     display: flex;
     justify-content: space-evenly;
@@ -72,9 +86,10 @@ button {
 }
 
 .mini-color-box {
-    border: 2px solid black;
+    border: 1px solid black;
     height: 3vmin;
     width: 3vmin;
+    border-radius: 3px;
 }
 
 .single-saved-palette {
