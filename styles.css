@@ -3,6 +3,7 @@ body {
     flex-direction: row;
     height: 100vh;
     margin: 0;
+    font-family: 'Schoolbell', cursive;
 }
 
 main {
@@ -69,6 +70,7 @@ img {
 
 button {
     font-size: 2vmin;
+    font-family: 'Schoolbell', cursive;
 }
 
 .mini-color-box {
