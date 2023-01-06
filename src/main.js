@@ -5,6 +5,10 @@ var savedSection = document.querySelector('aside');
 
 var currentPalette = new Palette();
 var savedPalettes = [];
+var counter = -1;
+var fonts = ["'Barrio', cursive", "'Bungee Shade', cursive", "'Cabin Sketch', cursive", "'Monoton', cursive", "'Moo Lah Lah', cursive", "'Schoolbell', cursive"];
+var colors = ["#ef3550", "#f48fb1", "#7e57c2", "#2196f3", "#26c6da", "#43a047", "#00ff80", "#eeff41", "#f9a825", "#ff5722"];
+var titleLetters = 'COLORANDOM'.split('');
 
 window.addEventListener('load', loadPage);
 newPaletteButton.addEventListener('click', changePaletteColors);
@@ -15,7 +19,37 @@ savedSection.addEventListener('click', deleteSavedPalette);
 function loadPage() {
     displayRandomTitleFonts();
     displayCurrentPalette();
+    var firstTimer = setInterval(printNum, 1000)
 }
+
+function printNum() {
+    counter++
+    if (counter > 9) {
+        counter = 0
+    }
+    var spans = document.querySelectorAll('span')
+    // console.log(spans[counter])
+    console.log("span index font", spans[counter].dataset.fontIndex)
+    var currentFontIndex = spans[counter].dataset.fontIndex
+    var randomFont = getRandomFont(currentFontIndex)
+    var fontIndex = fonts.indexOf(randomFont)
+    console.log('new font index: ', fontIndex)
+    
+    spans[counter].outerHTML = `<span data-font-index="${fontIndex}" style="font-family: ${randomFont}; color: ${colors[counter]};">${titleLetters[counter]}</span>`
+}
+
+function getRandomFont(fontIndex) {
+    var newFonts = [...fonts]
+    console.log("font array copy", newFonts)
+    newFonts.splice(fontIndex, 1)
+    console.log("font array copy after splice", newFonts)
+    var randomFont = newFonts[Math.floor(Math.random() * newFonts.length)];
+    return randomFont
+}
+
+// function checkForRandomFont() {
+
+// }
 
 function displayCurrentPalette() {
     colorWidgetParent.innerHTML = '';
@@ -51,20 +85,25 @@ function displaySavedPalettes() {
 }
 
 function displayRandomTitleFonts() {   
-    var fonts = ["'Barrio', cursive;", "'Bungee Shade', cursive;", "'Cabin Sketch', cursive;", "'Monoton', cursive;", "'Moo Lah Lah', cursive;", "'Schoolbell', cursive;"];
-    var colors = ["#ef3550", "#f48fb1", "#7e57c2", "#2196f3", "#26c6da", "#43a047", "#00ff80", "#eeff41", "#f9a825", "#ff5722"];
     var header = document.querySelector('h1');
-    var titleLetters = 'COLORANDOM'.split('');
     header.innerHTML = '';
     for (var i = 0; i < titleLetters.length; i++) {
         var randomNum = Math.floor(Math.random() * fonts.length);
-        header.innerHTML += `<span style="font-family: ${fonts[randomNum]}; color: ${colors[i]};">${titleLetters[i]}</span>`
+        header.innerHTML += `<span data-font-index="${randomNum}" style="font-family: ${fonts[randomNum]}; color: ${colors[i]};">${titleLetters[i]}</span>`
     }
+    // console.log(header.innerHTML)
+}
+
+function animateTitleFonts() {
+  num++
+  if (num > 10) {
+    num = 0
+  }
+  
 }
 
 function changePaletteColors() {
     currentPalette.replaceColors();
-    displayRandomTitleFonts();
     displayCurrentPalette();
 }
 
@@ -79,7 +118,6 @@ function toggleColorLock(event) {
 function savePalette() {
     var newSavedPalette = new Palette([...currentPalette.colors]);
     savedPalettes.push(newSavedPalette);
-    displayRandomTitleFonts();
     displaySavedPalettes();
     changePaletteColors();
 }
