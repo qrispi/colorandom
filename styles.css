@@ -4,6 +4,8 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Schoolbell', cursive;
+    background-image: url(https://i.pinimg.com/originals/c9/7e/a8/c97ea8bcc62bccbdb1f69f779b69f066.gif);
+    background-size: cover;
 }
 
 main {
@@ -16,11 +18,14 @@ main {
 
 main h1 {
     text-align: center;
-    font-size: 10vmin;
+    font-size: 13vmin;
+    margin-top: 3vmin;
+    margin-bottom: 0;
+    padding-bottom: 3vmin;
 }
 
 aside {
-    border-left: 2px solid black;
+    border-left: 2px solid white;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -28,6 +33,9 @@ aside {
     overflow: auto;
     /* margin-left: 4vw; */
     flex-basis: 25%;
+    color: white;
+    margin-top: 2vmin;
+    margin-bottom: 2vmin;
 }
 
 h3 {
@@ -41,12 +49,13 @@ h3 {
     gap: 1vmin;
     margin-right: 2vw;
     margin-left: 2vw;
+    margin-top: 0;
 }
 
 .color-box {
-    border: 2px solid black;
-    height: 15vmin;
-    width: 15vmin;
+    border: 2px solid white;
+    height: 20vmin;
+    width: 20vmin;
     border-radius: 10px;
 }
 
@@ -62,14 +71,14 @@ h3 {
     gap: 0.75vmin;
 }
 
-.color-widget > p {
+/* .color-widget > p {
     text-align: center;
-    font-size: 2vmin;
-}
+    font-size: 3vmin;
+} */
 
 main img {
-    height: 2vmin;
-    width: 2vmin;
+    height: 2vmax;
+    width: 2vmax;
 }
 
 aside img {
@@ -88,12 +97,12 @@ aside img:hover {
 }
 
 button {
-    font-size: 2vmin;
+    font-size: 4vmin;
     font-family: 'Schoolbell', cursive;
 }
 
 .mini-color-box {
-    border: 1px solid black;
+    border: 1px solid white;
     height: 3vmax;
     width: 3vmax;
     border-radius: 3px;
