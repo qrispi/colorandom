@@ -23,3 +23,4 @@ class Palette {
         this.colors[colorIndex].locked = !this.colors[colorIndex].locked;
     }
 }
+.5
