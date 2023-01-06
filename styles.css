@@ -8,11 +8,10 @@ body {
 
 main {
     display: flex;
-    width: 80vw;
     flex-direction: column;
     justify-content: space-around;
-    align-items: stretch;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
+    flex-basis: 75%;
 }
 
 main h1 {
@@ -21,26 +20,27 @@ main h1 {
 }
 
 aside {
-    width: 20vw;
     border-left: 2px solid black;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 2vmin;
     overflow: auto;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
+    flex-basis: 25%;
 }
 
 h3 {
-    font-size: 3vmin;
+    font-size: 2.5vmax;
+    margin-bottom: 0px;
 }
 
 .color-widget-parent {
     display: flex;
     justify-content: center;
     gap: 1vmin;
-    margin-right: 3vw;
-    margin-left: 3vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
 }
 
 .color-box {
@@ -67,9 +67,14 @@ h3 {
     font-size: 2vmin;
 }
 
-img {
+main img {
     height: 2vmin;
     width: 2vmin;
+}
+
+aside img {
+    height: 2vmax;
+    width: 2vmax;
 }
 
 aside img:hover {
@@ -89,8 +94,8 @@ button {
 
 .mini-color-box {
     border: 1px solid black;
-    height: 3vmin;
-    width: 3vmin;
+    height: 3vmax;
+    width: 3vmax;
     border-radius: 3px;
 }
 
@@ -100,4 +105,6 @@ button {
     justify-content: center;
     align-items: center;
     gap: 0.75vmin;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
 }
