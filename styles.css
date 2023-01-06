@@ -124,8 +124,8 @@ button:hover {
 }
 
 @media screen and (max-width: 140vh) {
-   body {
-    flex-direction: column;
+    body {
+        flex-direction: column;
     }
     aside {
         border-left: 0;
