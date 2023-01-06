@@ -5,10 +5,6 @@ var savedSection = document.querySelector('aside');
 
 var currentPalette = new Palette();
 var savedPalettes = [];
-var counter = -1;
-var fonts = ["'Barrio', cursive", "'Bungee Shade', cursive", "'Cabin Sketch', cursive", "'Monoton', cursive", "'Moo Lah Lah', cursive", "'Schoolbell', cursive"];
-var colors = ["#ef3550", "#f48fb1", "#7e57c2", "#2196f3", "#26c6da", "#43a047", "#00ff80", "#e6d847", "#f9a825", "#ff5722"];
-var titleLetters = 'COLORANDOM'.split('');
 
 window.addEventListener('load', loadPage);
 newPaletteButton.addEventListener('click', changePaletteColors);
@@ -25,15 +21,15 @@ function loadPage() {
 function displayCurrentPalette() {
     colorWidgetParent.innerHTML = '';
     for (var i = 0; i < 5; i++) {
-        var imgString = 'Unlock-White.png';
+        var imgString = 'Unlock.png';
         if (currentPalette.colors[i].locked) {
-            imgString = 'Lock-White.png';
+            imgString = 'Lock.png';
         }
         colorWidgetParent.innerHTML +=
             `<article class="color-widget">
                 <div data-index-number="${i}" style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
                 <div class="color-box-footer">
-                    <p style="color: white; font-size: 3vmin;">${currentPalette.colors[i].hex}</p>
+                    <p style="font-size: 3vmin;">${currentPalette.colors[i].hex}</p>
                     <img src="./assets/${imgString}">
                 </div>
             </article>`           
@@ -50,32 +46,9 @@ function displaySavedPalettes() {
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[2].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[3].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[4].hex}"></div>
-            <img src="./assets/Delete-White.png">
+            <img src="./assets/Delete.png">
         </article>`
     }
-}
-
-function displayRandomTitleFonts() {   
-    var header = document.querySelector('h1');
-    header.innerHTML = '';
-    for (var i = 0; i < titleLetters.length; i++) {
-        var randomNum = Math.floor(Math.random() * fonts.length);
-        header.innerHTML += `<span data-font-index="${randomNum}" style="font-family: ${fonts[randomNum]}; color: ${colors[i]};">${titleLetters[i]}</span>`
-    }
-}
-
-function animateTitleFonts() {
-    counter++
-    if (counter > 9) {
-        counter = 0
-    }
-    var spans = document.querySelectorAll('span')
-    // console.log("span index font", spans[counter].dataset.fontIndex)
-    var currentFontIndex = spans[counter].dataset.fontIndex
-    var randomFont = getRandomFont(currentFontIndex)
-    var fontIndex = fonts.indexOf(randomFont)
-    // console.log('new font index: ', fontIndex)
-    spans[counter].outerHTML = `<span data-font-index="${fontIndex}" style="font-family: ${randomFont}; color: ${colors[counter]};">${titleLetters[counter]}</span>`
 }
 
 function changePaletteColors() {
@@ -119,21 +92,3 @@ function getRandomHex() {
     }
     return hexCode;
 }
-
-function getRandomFont(fontIndex) {
-    var newFonts = [...fonts]
-    // console.log("font array copy", newFonts)
-    newFonts.splice(fontIndex, 1)
-    // console.log("font array copy after splice", newFonts)
-    var randomFont = newFonts[Math.floor(Math.random() * newFonts.length)];
-    return randomFont
-}
-
-
-// Changed yellow letter color to be more readable
-
-// 
-
-// create 'party-mode' button that toggles between white and black themes
-// p text is not scaling or inheriting CSS due to not having a class
-// Seems like items without classes do not inherit certain properties
