@@ -45,7 +45,7 @@ h3 {
 .color-widget-parent {
     display: flex;
     justify-content: center;
-    gap: 1vmin;
+    gap: 2vmin;
     margin-right: 2vw;
     margin-left: 2vw;
     margin-top: 0;
@@ -61,6 +61,7 @@ h3 {
 .color-box:hover {
     scale: 1.05;
     cursor: pointer;
+    box-shadow: 4px 4px black;
 }
 
 .color-box-footer {
@@ -98,6 +99,17 @@ aside img:hover {
 button {
     font-size: 4vmin;
     font-family: 'Schoolbell', cursive;
+    background-color: #26c6da;
+    box-shadow: 2px 2px black;
+    border-radius: 8px;
+    padding: 0.5vmin 2.5vmin;
+}
+
+button:hover {
+    box-shadow: 4px 4px black;
+    cursor: pointer;
+    scale: 1.2;
+    background-color: #2196f3;
 }
 
 .mini-color-box {
