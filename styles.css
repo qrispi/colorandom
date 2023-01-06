@@ -4,49 +4,57 @@ body {
     height: 100vh;
     margin: 0;
     font-family: 'Schoolbell', cursive;
+    background-image: url(https://i.gifer.com/6ob.gif);
+    background-repeat: repeat;
 }
 
 main {
     display: flex;
-    width: 80vw;
     flex-direction: column;
     justify-content: space-around;
-    align-items: stretch;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
+    flex-basis: 75%;
 }
 
 main h1 {
     text-align: center;
-    font-size: 10vmin;
+    font-size: 13vmin;
+    margin-top: 3vmin;
+    margin-bottom: 0;
+    padding-bottom: 3vmin;
 }
 
 aside {
-    width: 20vw;
     border-left: 2px solid black;
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 2vmin;
     overflow: auto;
-    margin-left: 4vw;
+    /* margin-left: 4vw; */
+    flex-basis: 25%;
+    margin-top: 2vmin;
+    margin-bottom: 2vmin;
 }
 
 h3 {
-    font-size: 3vmin;
+    font-size: 2.5vmax;
+    margin-bottom: 0px;
 }
 
 .color-widget-parent {
     display: flex;
     justify-content: center;
     gap: 1vmin;
-    margin-right: 3vw;
-    margin-left: 3vw;
+    margin-right: 2vw;
+    margin-left: 2vw;
+    margin-top: 0;
 }
 
 .color-box {
     border: 2px solid black;
-    height: 15vmin;
-    width: 15vmin;
+    height: 20vmin;
+    width: 20vmin;
     border-radius: 10px;
 }
 
@@ -62,14 +70,19 @@ h3 {
     gap: 0.75vmin;
 }
 
-.color-widget > p {
+/* .color-widget > p {
     text-align: center;
-    font-size: 2vmin;
+    font-size: 3vmin;
+} */
+
+main img {
+    height: 2vmax;
+    width: 2vmax;
 }
 
-img {
-    height: 2vmin;
-    width: 2vmin;
+aside img {
+    height: 2vmax;
+    width: 2vmax;
 }
 
 aside img:hover {
@@ -83,14 +96,14 @@ aside img:hover {
 }
 
 button {
-    font-size: 2vmin;
+    font-size: 4vmin;
     font-family: 'Schoolbell', cursive;
 }
 
 .mini-color-box {
     border: 1px solid black;
-    height: 3vmin;
-    width: 3vmin;
+    height: 3vmax;
+    width: 3vmax;
     border-radius: 3px;
 }
 
@@ -100,4 +113,6 @@ button {
     justify-content: center;
     align-items: center;
     gap: 0.75vmin;
+    margin-right: 0.5vw;
+    margin-left: 0.5vw;
 }
