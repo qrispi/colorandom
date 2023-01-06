@@ -29,7 +29,7 @@ function displayCurrentPalette() {
             `<article class="color-widget">
                 <div data-index-number="${i}" style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
                 <div class="color-box-footer">
-                    <p style="font-size: 3vmin;">${currentPalette.colors[i].hex}</p>
+                    <p style="font-size: 2.5vmin;">${currentPalette.colors[i].hex}</p>
                     <img src="./assets/${imgString}">
                 </div>
             </article>`           

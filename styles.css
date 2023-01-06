@@ -1,11 +1,11 @@
 body {
     display: flex;
-    flex-direction: row;
     height: 100vh;
     margin: 0;
     font-family: 'Schoolbell', cursive;
     background-image: url(https://i.gifer.com/6ob.gif);
     background-repeat: repeat;
+    /* flex-wrap: wrap; */
 }
 
 main {
@@ -13,15 +13,19 @@ main {
     flex-direction: column;
     justify-content: space-around;
     /* margin-left: 4vw; */
+    align-items: stretch;
     flex-basis: 75%;
+    padding: 5vmin;
+    /* min-width: 650px; */
 }
 
 main h1 {
     text-align: center;
-    font-size: 13vmin;
-    margin-top: 3vmin;
-    margin-bottom: 0;
-    padding-bottom: 3vmin;
+    /* font-size: 13vmin; */
+    margin: 3vmin 0vmin 0vmin 0vmin;
+    /* margin-bottom: 0; */
+    padding: 0vmin 0vmin 3vmin 0vmin;
+    width: 100%;
 }
 
 aside {
@@ -37,6 +41,24 @@ aside {
     margin-bottom: 2vmin;
 }
 
+@media screen and (max-width: 830px) {
+    h1 {
+     font-size: 11vmin;
+    }
+   body {
+    flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 831px) {
+    h1 {
+        font-size: 16vmin;
+    }
+    body {
+        flex-direction: row;
+    }
+}
+
 h3 {
     font-size: 2.5vmax;
     margin-bottom: 0px;
@@ -46,16 +68,15 @@ h3 {
     display: flex;
     justify-content: center;
     gap: 2vmin;
-    margin-right: 2vw;
-    margin-left: 2vw;
     margin-top: 0;
 }
 
 .color-box {
     border: 2px solid black;
-    height: 20vmin;
-    width: 20vmin;
+    /* height: 20vmin; */
+    width: 100%;
     border-radius: 10px;
+    padding-bottom: 100%;
 }
 
 .color-box:hover {
@@ -69,12 +90,14 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 0.75vmin;
+    width: 100%;
 }
 
-/* .color-widget > p {
+.color-widget {
     text-align: center;
     font-size: 3vmin;
-} */
+    flex-basis: 20%;
+}
 
 main img {
     height: 2vmax;
@@ -84,6 +107,7 @@ main img {
 aside img {
     height: 2vmax;
     width: 2vmax;
+    flex-basis: 15%;
 }
 
 aside img:hover {
@@ -114,9 +138,10 @@ button:hover {
 
 .mini-color-box {
     border: 1px solid black;
-    height: 3vmax;
     width: 3vmax;
+    height: 3vmax;
     border-radius: 3px;
+    flex-basis: 15%;
 }
 
 .single-saved-palette {
