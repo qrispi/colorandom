@@ -12,6 +12,24 @@ savePaletteButton.addEventListener('click', savePalette);
 colorWidgetParent.addEventListener('click', toggleColorLock);
 savedSection.addEventListener('click', deleteSavedPalette);
 
+
+var dragID;
+savedSection.addEventListener('dragstart', function(event) {
+    dragID = event.target.id;
+})
+colorWidgetParent.addEventListener('dragover', function(event){
+    event.preventDefault();
+});
+colorWidgetParent.addEventListener('drop', function(event) {
+    for (var i = 0; i < savedPalettes.length; i++) {
+        if (savedPalettes[i].id == dragID) {
+            currentPalette = savedPalettes[i]
+        }
+    }
+    displayCurrentPalette();
+})
+
+
 function loadPage() {
     displayRandomTitleFonts();
     displayCurrentPalette();
@@ -40,7 +58,7 @@ function displaySavedPalettes() {
     savedSection.innerHTML = `<h3>Saved Palettes</h3>`;
     for (var i = 0; i < savedPalettes.length; i++) {
         savedSection.innerHTML += 
-        `<article class="single-saved-palette" id="${savedPalettes[i].id}">
+        `<article draggable="true" class="single-saved-palette" id="${savedPalettes[i].id}">
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[0].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[1].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[2].hex}"></div>
