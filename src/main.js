@@ -11,6 +11,7 @@ newPaletteButton.addEventListener('click', changePaletteColors);
 savePaletteButton.addEventListener('click', savePalette);
 colorWidgetParent.addEventListener('click', toggleColorLock);
 savedSection.addEventListener('click', deleteSavedPalette);
+savedSection.addEventListener('dblclick', recallSavedPalette);
 
 function loadPage() {
     displayRandomTitleFonts();
@@ -39,7 +40,7 @@ function displayCurrentPalette() {
 }
 
 function displaySavedPalettes() {
-    savedSection.innerHTML = `<h3>Saved Palettes</h3>`;
+    savedSection.innerHTML = `<h3>Saved Palettes</h3><p style="margin-top: 0px">Double Click to Recall</p>`;
     for (var i = 0; i < savedPalettes.length; i++) {
         savedSection.innerHTML += 
         `<article class="single-saved-palette" id="${savedPalettes[i].id}">
@@ -50,6 +51,9 @@ function displaySavedPalettes() {
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[4].hex}"></div>
             <img src="./assets/Delete.png" alt="Delete icon">
         </article>`;
+    }
+    if(savedPalettes.length === 0) {
+        savedSection.innerHTML = `<h3>Saved Palettes</h3>`;
     }
 }
 
@@ -79,9 +83,22 @@ function deleteSavedPalette(event) {
         for (var i = 0; i < savedPalettes.length; i++) {
             if (savedPalettes[i].id == clickedPaletteId) {
                 savedPalettes.splice(i, 1);
+                break;
             }
         }
         displaySavedPalettes();
+    }
+}
+
+function recallSavedPalette(event) {
+    if(event.target.className === 'mini-color-box') {
+        var clickedPaletteId = event.target.parentElement.id;
+        for (var i = 0; i < savedPalettes.length; i++) {
+            if (savedPalettes[i].id == clickedPaletteId) {
+                currentPalette = new Palette([...savedPalettes[i].colors]);
+            }
+        }
+        displayCurrentPalette();
     }
 }
 
