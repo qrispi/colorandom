@@ -9,16 +9,16 @@ We created an application that allows users to generate, save, and delete random
 
 ### Preview of App:
 [GitHub Pages Link](https://qrispi.github.io/colorandom/)
-![image](preview.gif)
+![image](assets/preview.gif)
 
 ### Context:
 This project was created during our 4th week in Turing. It took an estimated 20 hours of group collaboration and some additional solo/paired(2) sessions to implement the required functionality.
 
 ### Contributors:
-Jason Kirchman: [@kirch1](https://github.com/kirch1)
-Chris Baum: [@qrispi](https://github.com/qrispi/)
-Soyeon (Sara) Park: [@soy-park](https://github.com/soy-park)
-Trey Marshall: [@tdmburr](https://github.com/tdmburr)
+- Jason Kirchman: [@kirch1](https://github.com/kirch1)
+- Chris Baum: [@qrispi](https://github.com/qrispi/)
+- Soyeon (Sara) Park: [@soy-park](https://github.com/soy-park)
+- Trey Marshall: [@tdmburr](https://github.com/tdmburr)
 
 ### Learning Goals:
 1. Write semantic HTML and efficient CSS to form a usable UI
