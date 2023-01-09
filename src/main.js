@@ -22,15 +22,17 @@ function displayCurrentPalette() {
     colorWidgetParent.innerHTML = '';
     for (var i = 0; i < 5; i++) {
         var imgString = 'Unlock.png';
+        var altText = "Unlock icon";
         if (currentPalette.colors[i].locked) {
             imgString = 'Lock.png';
+            altText = "Lock icon";
         }
         colorWidgetParent.innerHTML +=
             `<article class="color-widget">
                 <div data-index-number="${i}" style="background-color:${currentPalette.colors[i].hex}" class="color-box"></div>
                 <div class="color-box-footer">
                     <p style="font-size: 3vmin;">${currentPalette.colors[i].hex}</p>
-                    <img src="./assets/${imgString}">
+                    <img src="./assets/${imgString}" alt="${altText}">
                 </div>
             </article>`;           
     }
@@ -46,7 +48,7 @@ function displaySavedPalettes() {
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[2].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[3].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[4].hex}"></div>
-            <img src="./assets/Delete.png">
+            <img src="./assets/Delete.png" alt="Delete icon">
         </article>`;
     }
 }
