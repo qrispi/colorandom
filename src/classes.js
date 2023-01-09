@@ -12,12 +12,23 @@ class Palette {
         this.id = Date.now();
     }
     
-    replaceColors() {
+    replaceColors() { 
+        var lockFound = false;
         for(var i = 0; i < this.colors.length; i++) {
-            if(!this.colors[i].locked) {
-                this.colors[i] = new Color();
+            if(this.colors[i].locked) {
+                lockFound = true;
             }
         }
+        if(lockFound) {
+            for(var i = 0; i < this.colors.length; i++) {
+                if(!this.colors[i].locked) {
+                    this.colors[i] = new Color();
+                }
+            }
+        }else{
+            this.colors = getCohesivePalette();
+        }
+
     }
 
     toggleColorLock(colorIndex) {

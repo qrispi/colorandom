@@ -1,7 +1,7 @@
 function getCohesivePalette() {
     var color1 = getRandomHSL();
-    var color2 = getRotatedHueColor(color1, 90);
-    var color3 = getRotatedHueColor(color1, 180);
+    var color2 = getRotatedHueColor(color1, 180);
+    var color3 = getRotatedHueColor(color1, 90);
     var color4 = getRotatedHueColor(color1, 270);
     var color5 = adjustLightness(color4);
   
@@ -16,11 +16,11 @@ function getCohesivePalette() {
   
 function getRandomHSL() {
     var h = Math.floor(Math.random() * 360);
-    var maxS = 90;
+    var maxS = 100;
     var minS = 20;
     var s = Math.floor(Math.random() * (maxS - minS + 1)) + minS;
     var maxL = 90;
-    var minL = 20;
+    var minL = 30;
     var l = Math.floor(Math.random() * (maxL - minL + 1)) + minL;
     return [h,s,l];
 }
@@ -53,44 +53,46 @@ function adjustLightness(color) {
 
 
 function HSLToHex(color) {
-    var h = color[0];
-    var s = color[1];
-    var l = color[2];
-
-    s /= 100;
-    l /= 100;
-
-    let c = (1 - Math.abs(2 * l - 1)) * s,
-        x = c * (1 - Math.abs((h / 60) % 2 - 1)),
-        m = l - c/2,
-        r = 0,
-        g = 0, 
-        b = 0; 
-
-    if (0 <= h && h < 60) {
-        r = c; g = x; b = 0;
-    } else if (60 <= h && h < 120) {
-        r = x; g = c; b = 0;
-    } else if (120 <= h && h < 180) {
-        r = 0; g = c; b = x;
-    } else if (180 <= h && h < 240) {
-        r = 0; g = x; b = c;
-    } else if (240 <= h && h < 300) {
-        r = x; g = 0; b = c;
-    } else if (300 <= h && h < 360) {
-        r = c; g = 0; b = x;
+    h = color[0]/360;
+    s = color[1]/100;
+    l = color[2]/100;
+    
+    var r;
+    var g;
+    var b;
+    
+    if(s === 0) {
+      r = l;
+      g = l;
+      b = l;
+    }else {
+      function hue2rgb(p, q, t) {
+        if (t < 0){
+          t += 1;
+        }
+        if (t > 1){
+          t -= 1;
+        }
+        if (t < 1 / 6){
+          return p + (q - p) * 6 * t;
+        }
+        if (t < 1 / 2){
+          return q;
+        }
+        if (t < 2 / 3){
+          return p + (q - p) * (2 / 3 - t) * 6;
+        }
+        return p;
+      };
+      var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+      var p = 2 * l - q;
+      r = hue2rgb(p, q, h + 1 / 3);
+      g = hue2rgb(p, q, h);
+      b = hue2rgb(p, q, h - 1 / 3);
     }
-
-    r = Math.round((r + m) * 255).toString(16);
-    g = Math.round((g + m) * 255).toString(16);
-    b = Math.round((b + m) * 255).toString(16);
-
-    if (r.length == 1)
-        r = "0" + r;
-    if (g.length == 1)
-        g = "0" + g;
-    if (b.length == 1)
-        b = "0" + b;
-
-    return "#" + r + g + b;
-}
+    const toHex = x => {
+      const hex = Math.round(x * 255).toString(16);
+      return hex.length === 1 ? '0' + hex : hex;
+    };
+    return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+  }
