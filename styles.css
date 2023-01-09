@@ -12,7 +12,6 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* margin-left: 4vw; */
     flex-basis: 75%;
 }
 
@@ -31,7 +30,6 @@ aside {
     flex-direction: column;
     gap: 2vmin;
     overflow: auto;
-    /* margin-left: 4vw; */
     flex-basis: 25%;
     margin-top: 2vmin;
     margin-bottom: 2vmin;
@@ -45,7 +43,7 @@ h3 {
 .color-widget-parent {
     display: flex;
     justify-content: center;
-    gap: 1vmin;
+    gap: 1.5vmin;
     margin-right: 2vw;
     margin-left: 2vw;
     margin-top: 0;
@@ -53,14 +51,15 @@ h3 {
 
 .color-box {
     border: 2px solid black;
-    height: 20vmin;
-    width: 20vmin;
+    height: 18vmin;
+    width: 18vmin;
     border-radius: 10px;
 }
 
 .color-box:hover {
     scale: 1.05;
     cursor: pointer;
+    box-shadow: 4px 4px black;
 }
 
 .color-box-footer {
@@ -69,11 +68,6 @@ h3 {
     align-items: center;
     gap: 0.75vmin;
 }
-
-/* .color-widget > p {
-    text-align: center;
-    font-size: 3vmin;
-} */
 
 main img {
     height: 2vmax;
@@ -98,6 +92,18 @@ aside img:hover {
 button {
     font-size: 4vmin;
     font-family: 'Schoolbell', cursive;
+    background-color: #26c6da;
+    box-shadow: 2px 2px black;
+    border-radius: 8px;
+    padding: 0.5vmin 2.5vmin;
+    margin-bottom: 3.5vmin;
+}
+
+button:hover {
+    box-shadow: 4px 4px black;
+    cursor: pointer;
+    scale: 1.2;
+    background-color: #2196f3;
 }
 
 .mini-color-box {
@@ -115,4 +121,15 @@ button {
     gap: 0.75vmin;
     margin-right: 0.5vw;
     margin-left: 0.5vw;
+}
+
+@media screen and (max-width: 140vh) {
+    body {
+        flex-direction: column;
+    }
+    aside {
+        border-left: 0;
+        border-top: 2px solid black;
+        margin: 1vmin 3vmin;
+    }
 }

@@ -15,7 +15,7 @@ savedSection.addEventListener('click', deleteSavedPalette);
 function loadPage() {
     displayRandomTitleFonts();
     displayCurrentPalette();
-    var timer = setInterval(animateTitleFonts, 1000)
+    var timer = setInterval(animateTitleFonts, 1000);
 }
 
 function displayCurrentPalette() {
@@ -32,7 +32,7 @@ function displayCurrentPalette() {
                     <p style="font-size: 3vmin;">${currentPalette.colors[i].hex}</p>
                     <img src="./assets/${imgString}">
                 </div>
-            </article>`           
+            </article>`;           
     }
 }
 
@@ -47,7 +47,7 @@ function displaySavedPalettes() {
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[3].hex}"></div>
             <div class="mini-color-box" style="background-color: ${savedPalettes[i].colors[4].hex}"></div>
             <img src="./assets/Delete.png">
-        </article>`
+        </article>`;
     }
 }
 
