@@ -69,12 +69,7 @@ h3 {
     gap: 0.75vmin;
 }
 
-main img {
-    height: 2vmax;
-    width: 2vmax;
-}
-
-aside img {
+img {
     height: 2vmax;
     width: 2vmax;
 }
