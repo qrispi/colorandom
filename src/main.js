@@ -31,9 +31,7 @@ colorWidgetParent.addEventListener('drop', function(event) {
 
 
 function loadPage() {
-    displayRandomTitleFonts();
     displayCurrentPalette();
-    var timer = setInterval(animateTitleFonts, 1000);
 }
 
 function displayCurrentPalette() {
@@ -55,7 +53,7 @@ function displayCurrentPalette() {
 }
 
 function displaySavedPalettes() {
-    savedSection.innerHTML = `<h3>Saved Palettes</h3>`;
+    savedSection.innerHTML = `<h3>Saved Palettes</h3>Drag & Drop to Recall`;
     for (var i = 0; i < savedPalettes.length; i++) {
         savedSection.innerHTML += 
         `<article draggable="true" class="single-saved-palette" id="${savedPalettes[i].id}">
